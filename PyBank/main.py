@@ -41,15 +41,16 @@ for a,b in delta_pairs:
     delta_sigma += b
 delta_average = delta_sigma / len(delta_pairs)
 
-print('')
-print('Financial Analysis')
-print('------------------')
-print(f'Total Months: {row_total}')
-print(f'Net PNL: ${pnl}')
-print(f'Average Change: {delta_average}')
-print(f'Greatest Profit Increase: {max_date} ${max_val}')
-if min_val < 0:
-    print(f'Greatest Profit Decrease: {min_date} $({min_val})')
-if min_val > 0:
-    print(f'Greatest Profit Decrease: {min_date} ${min_val}')
+print(f'\nFinancial Analysis\n------------------\n'
+    f'Total Months: {row_total}\nNet Profit: ${pnl}\n'
+    f'Average Change: {delta_average}\n'
+    f'Greatest Profit Increase: {max_date} ${max_val}\n'
+    f'Greatest Profit Decrease: {min_date} ${min_val}')
 
+output_path = os.path.join("Analysis","output.txt")
+with open(output_path, 'w') as txtfile:
+    print(f'\nFinancial Analysis\n------------------\n'
+    f'Total Months: {row_total}\nNet Profit: ${pnl}\n'
+    f'Average Change: {delta_average}\n'
+    f'Greatest Profit Increase: {max_date} ${max_val}\n'
+    f'Greatest Profit Decrease: {min_date} ${min_val}',file = txtfile)
